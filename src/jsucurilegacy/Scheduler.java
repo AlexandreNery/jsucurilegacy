@@ -442,10 +442,6 @@ public class Scheduler
                     }
                 }
 
-                /*else (jsucuri.Worker não-local, ou seja, MPI...)
-                {
-
-                }*/
 
             }
 
@@ -538,10 +534,6 @@ public class Scheduler
 ////                    }
 //                }
 //
-//                /*else (jsucuri.Worker não-local, ou seja, MPI...)
-//                {
-//
-//                }*/
 //
 //            }
 //

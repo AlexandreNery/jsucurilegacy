@@ -2,10 +2,8 @@ package examples.lcs;
 
 import jsucurilegacy.*;
 
-import java.io.IOException;
+import java.io.*;
 import java.io.Serializable;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 /**
  * Created by marcos on 08/10/16.
@@ -26,12 +24,14 @@ public class LCS {
         DFGraph lcsGraph = new DFGraph();
         Scheduler sched = new Scheduler(lcsGraph, nprocs, false);
 
-        String nameA = "/Users/alexandrenery/IdeaProjects/JSucuri/src/examples/lcs/seqA.txt";//sys.argv[1]
-        String nameB = "/Users/alexandrenery/IdeaProjects/JSucuri/src/examples/lcs/seqB.txt";//sys.argv[2]
+        String nameA = "/home/anery/jsucurilegacy/src/examples/lcs/seqA.txt";//sys.argv[1]
+        String nameB = "/home/anery/jsucurilegacy/src/examples/lcs/seqB.txt";//sys.argv[2]
 
         try {
-            sA = new String(Files.readAllBytes(Paths.get(nameA)));
-            sB = new String(Files.readAllBytes(Paths.get(nameB)));
+            sA = readFile(nameA);
+            sB = readFile(nameB);
+            //sA = new String(Files.readAllBytes(Paths.get(nameA)));
+            //sB = new String(Files.readAllBytes(Paths.get(nameB)));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -115,6 +115,23 @@ public class LCS {
         sched.start();
 
 
+    }
+
+    static String readFile(String file) throws IOException{
+        BufferedReader reader = new BufferedReader(new FileReader(file));
+        String line = null;
+        StringBuilder sb = new StringBuilder();
+        String ls = System.getProperty("line.separator");
+
+        try{
+            while((line = reader.readLine()) != null){
+                sb.append(line);
+                sb.append(ls);
+            }
+            return sb.toString();
+        }finally{
+            reader.close();
+        }
     }
 
     static int inputs(int i, int j){

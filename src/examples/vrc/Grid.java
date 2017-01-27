@@ -321,18 +321,18 @@ public class Grid implements Serializable{
         return 0.0f;
     }
 
-    public String toString()
-    {
-        String res;
-        res = "GRID: \n";
-        res += "t_min = " + t_min + "\n";
-        res += "t_max = " + t_max + "\n";
-        res += "p0 = " + p0 + "\n";
-        res += "p1 = " + p1 + "\n";
-        res += "nx,ny,nz = " + nx + "," + ny + "," + nz + "\n";
-        res += "t0,t1 = " + t0 + "," + t1 + "\n";
-        return res;
-    }
+//    public String toString()
+//    {
+//        String res;
+//        res = "GRID: \n";
+//        res += "t_min = " + t_min + "\n";
+//        res += "t_max = " + t_max + "\n";
+//        res += "p0 = " + p0 + "\n";
+//        res += "p1 = " + p1 + "\n";
+//        res += "nx,ny,nz = " + nx + "," + ny + "," + nz + "\n";
+//        res += "t0,t1 = " + t0 + "," + t1 + "\n";
+//        return res;
+//    }
 
 
 }

@@ -3,11 +3,12 @@ package examples.vrc;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
+import java.io.Serializable;
 
 /**
  * Created by alexandrenery on 10/26/16.
  */
-public class Util {
+public class Util implements Serializable{
 
     public static byte[] loadRawFileBytes(String filename, int bytes) throws IOException
     {

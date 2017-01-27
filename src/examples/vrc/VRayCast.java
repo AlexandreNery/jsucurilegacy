@@ -1,10 +1,9 @@
 package examples.vrc;
 
-import java.awt.image.BufferedImage;
-import java.io.File;
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import jsucurilegacy.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
 
 /**
  * Created by alexandrenery on 10/26/16.

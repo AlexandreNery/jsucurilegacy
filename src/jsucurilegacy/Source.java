@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ArrayBlockingQueue;
+import java.util.Iterator;
 
 /**
  * Created by marcos on 01/10/16.
@@ -55,8 +56,8 @@ public class Source extends Node {
     }
 
     String f(String line, Object args){
-    //default source operation
-		return line;
+        //default source operation
+        return line;
     }
 
     public void add_edge(Node dst, Integer dstport)
@@ -75,12 +76,22 @@ public class Source extends Node {
         }
         else
         {
-            for(Object edgeObj: dsts){
-                Edge edge = (Edge) edgeObj;
+            Iterator it = dsts.iterator();
+            while(it.hasNext())
+            {
+                Edge edge = (Edge) it.next();
                 Oper oper = new Oper(workerid, edge.dst_id, edge.dst_port, value);
                 oper.tag = tag;
                 opers.add(oper);
             }
+
+            //not compatible with jdk6
+            //dsts.forEach((e) -> {
+            //    Edge edge = (Edge) e;
+            //    Oper oper = new Oper(workerid, edge.dst_id, edge.dst_port, value);
+            //    oper.tag = tag;
+            //    opers.add(oper);
+            //});
         }
         return opers;
     }

@@ -1,9 +1,11 @@
 package examples.vrc;
 
+import java.io.Serializable;
+
 /**
  * Created by alexandrenery on 10/26/16.
  */
-public class TransferControlPoint {
+public class TransferControlPoint implements Serializable{
     public Color color;
     public int IsoValue;
 
