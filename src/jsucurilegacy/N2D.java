@@ -3,6 +3,7 @@ package jsucurilegacy;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ArrayBlockingQueue;
+import java.util.Iterator;
 
 /**
  * Created by marcos on 08/10/16.
@@ -66,7 +67,7 @@ public class N2D extends Node {
         */
 
         if(inport.length == 0) {
-        //if(inport.length == 0) {
+            //if(inport.length == 0) {
             //args = new Object[2];
             //args[args.length-2] = i;
             //args[args.length-1] = j;
@@ -93,11 +94,20 @@ public class N2D extends Node {
         }
         else
         {
-            dsts.forEach((e) -> {
+            Iterator it = dsts.iterator();
+            while(it.hasNext())
+            {
+                Edge e = (Edge) it.next();
                 Oper oper = new Oper(workerid, e.dst_id, e.dst_port, value[e.srcport]);
                 oper.tag = tag;
                 opers.add(oper);
-            });
+            }
+
+            //dsts.forEach((e) -> {
+            //    Oper oper = new Oper(workerid, e.dst_id, e.dst_port, value[e.srcport]);
+            //    oper.tag = tag;
+            //    opers.add(oper);
+            //});
         }
         return opers;
     }
