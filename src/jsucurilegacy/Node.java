@@ -113,11 +113,12 @@ public class Node
         }
         else
         {
-            dsts.forEach((e) -> {
-                Oper oper = new Oper(workerid, e.dst_id, e.dst_port, value);
+            for(Edge edge: dsts){
+                Oper oper = new Oper(workerid, edge.dst_id, edge.dst_port, value);
                 oper.tag = tag;
                 opers.add(oper);
-            });
+            }
+
         }
         return opers;
     }

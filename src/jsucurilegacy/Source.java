@@ -75,12 +75,12 @@ public class Source extends Node {
         }
         else
         {
-            dsts.forEach((e) -> {
-                Edge edge = (Edge) e;
+            for(Object edgeObj: dsts){
+                Edge edge = (Edge) edgeObj;
                 Oper oper = new Oper(workerid, edge.dst_id, edge.dst_port, value);
                 oper.tag = tag;
                 opers.add(oper);
-            });
+            }
         }
         return opers;
     }
